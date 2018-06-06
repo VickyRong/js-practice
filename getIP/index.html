@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取浏览器IP地址</title>
+    <script src="jquery.js"></script>
+    
+</head>
+<body>
+    <script type="text/javascript">
+        //通过新浪提供接口获取
+        $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(_result) {
+            if (remote_ip_info.ret == '1') {
+                console.log(remote_ip_info)
+                console.log('国家：'+ remote_ip_info.country);
+                console.log('省：'+ remote_ip_info.province);
+                console.log('市：'+ remote_ip_info.city);
+                console.log('区：'+ remote_ip_info.district);
+            } else {
+                console.log('没有找到匹配的IP地址信息！');
+            }
+        });
+    </script>   
+</body>
+</html>·
