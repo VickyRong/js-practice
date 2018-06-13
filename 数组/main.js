@@ -48,6 +48,6 @@ console.log(res)
 var r = arr2.find(r => r > 222);
 console.log(r)
 //findIndex();
-var a = arr2.findIndex(r => r == "555");
+var a = arr2.findIndex(r => r == "333");
 console.log(a)
 

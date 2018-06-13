@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(add());
+        console.log(add(12,34));
+        console.log(add(12,34,57));
+        console.log(average([12,34,57]));
+        //求和函数
+        function add(){
+            let sum = 0;
+            for(let i=0;i<arguments.length;i++){
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        //求平均数函数
+        function average(arr){
+            let sum = 0;
+            let n = arr.length;
+            for(let i=0;i<arr.length;i++){
+                sum += arr[i];
+            }
+            return sum/n;
+        }
+        //this指向
+        function makePerson(first, last) {
+            return {
+                first: first,
+                last: last,
+                fullName: function() {
+                    return this.first + ' ' + this.last;
+                },
+                fullNameReversed: function() {
+                    return this.last + ', ' + this.first;
+                }
+            }
+        }
+        s = makePerson("Simon", "Willison");
+        // s.fullName(); // Simon Willison
+        // s.fullNameReversed(); // Willison, Simon
+        var fullName = s.fullName;
+        console.log(fullName)
+        s.fullName(); // undefined undefined
+
+
+        //原型链
+        function Person(first, last) {
+            this.first = first;
+            this.last = last;
+        }
+        Person.prototype.fullName = function() {
+            return this.first + ' ' + this.last;
+        }
+        Person.prototype.fullNameReversed = function() {
+            return this.last + ', ' + this.first;
+        }
+        Person.prototype.firstNameCaps = function(){
+            return this.first.toUpperCase()
+        }
+        s = new Person("Simon", "Willison");
+        console.log(s)
+        s.firstNameCaps(); 
+
+        //闭包
+        var Counter = (function(){
+            var privateCounter = 0;
+            function change(val){
+                privateCounter += val;
+            }
+            return {
+                add: function(){
+                    change(1);
+                },
+                plus:function(){
+                    change(2);
+                },
+                value:function(){
+                    return privateCounter;
+                }
+            }
+        })()
+        console.log(Counter)
+        console.log(Counter.add());
+        console.log(Counter.add());
+        console.log(Counter.add());
+        console.log(Counter.value());
+
+    </script>
+</body>
+</html>
