@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <style type="text/css" rel="stylesheet">
+            .regis_box input[type='number']::-webkit-outer-spin-button,
+            .regis_box input[type='number']::-webkit-inner-spin-button{
+                -webkit-appearance: none !important;
+                margin: 0;
+            }
+     </style>
+</head>
+<body>
+    <input type="number" id="myInput" value="" onkeyup="handlekeyup()" />
+    <script>
+        /**
+           <input> type=number 时调用数字键盘，
+           有可能可以输入各类字符，但是只有当输入的是数字和小数点时（只能有一个小数点），
+           input的value才会有值，否则value输出为空值。
+        */
+        
+        function handlekeyup(e){
+            var obj = document.getElementById('myInput');
+            console.log(obj.value)
+        }
+    </script>
+</body>
+</html>
