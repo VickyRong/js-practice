@@ -20,14 +20,25 @@
  */
 var twoSum = function(nums, target) {
     let number = [];
-    for(var i = 0; i < nums.length; i++){
+
+    let found = false
+    for(var i = 0; i < nums.length; i++) {
+
         for(var j = i+1 ; j < nums.length; j++ ){
             if(nums[i] + nums[j] == target){
                 number.push(i,j);
+                return number;
+                found = true
+                break
             }
         }
+
+        if (found) {
+            break
+        }
     }
-    return number;
+    console.log("执行了吗",number)
+    // return number;
 };
 
-console.log(twoSum([2, 7, 11, 15],9));
+console.log(twoSum([ 11, 1, 2, 7],9));
