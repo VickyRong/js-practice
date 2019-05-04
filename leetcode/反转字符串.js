@@ -15,15 +15,15 @@
 
  /**
  * 【解题思路】：
- * 1.使用中心对称法，从数组中第二个数开始操作，依次删除之后添加到数组头部
- *  
+ * 1.解法1:使用中心对称法，从数组中第二个数开始操作，依次删除之后添加到数组头部
+ * 2.解法2:首尾交换法，当运行到数组的一半时停止交换
  */
  
  /**
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-var reverseString = function(s) {
+var reverseString1 = function(s) {
     for(var i = 1;i < s.length;i++){
         var tmp = s[i];
         s.splice(i,1);
@@ -32,5 +32,18 @@ var reverseString = function(s) {
     return s;
 };
 
-reverseString(["h","e","l","l","o"])
-reverseString(["H","a","n","n","a","h"])
+var reverseString2 = function(s) {
+   var i = 0;
+   var j = s.length-1;
+   while(i < j){
+       var temp = s[i];
+       s[i] = s[j];
+       s[j] = temp;
+       i++;
+       j--;
+   }
+   return s;
+};
+
+reverseString1(["h","e","l","l","o"])
+reverseString2(["H","a","n","n","a","h"])
